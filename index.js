@@ -1,6 +1,7 @@
 import  './libraries/jquery.min.js';
 import './libraries/loading-bar.min.js';
 import {AnalogReader} from './Devices.js';
+import './Stroy.js';
 
 var images = {
     scene1:{
