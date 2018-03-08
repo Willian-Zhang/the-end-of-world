@@ -1,5 +1,4 @@
 import  './libraries/jquery.min.js';
-// import swal from './libraries/sweetalert.min.js';
 import './libraries/loading-bar.min.js';
 import {AnalogReader} from './Devices.js';
 
@@ -51,4 +50,5 @@ function set_blood(value){
     "use strict";
     bloodBar.set(value);
 }
-set_blood(50);
+
+
