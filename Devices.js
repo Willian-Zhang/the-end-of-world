@@ -12,8 +12,8 @@ export class Button extends EventEmitter2{
          * detect new changes for value
          * @param  value  new value
          */
-        if(this.lastValue != value){
-            if(value == this.offValue){
+        if(this.lastValue !== value){
+            if(value === this.offValue){
                 this.emit("release");
             }else{
                 this.emit("press");
@@ -62,5 +62,19 @@ export class AnalogReader extends EventEmitter2{
     tick(value){
         this.emit("tick", value);
         this.value = value;
+    }
+}
+
+export class CatagorialReader extends EventEmitter2{
+    constructor(defaultValue = 0){
+        super();
+        this.value = defaultValue;
+    }
+    tick(value){
+        this.emit("tick", value);
+        if(value !== this.value){
+            this.emit("change", value);
+            this.value = value;
+        }
     }
 }

@@ -1,6 +1,6 @@
 import {AnalogReader, CapasitiveSensor, Button} from './Devices.js';
 import './libraries/eventemitter2.js';
-class Board extends EventEmitter2{
+export class Board extends EventEmitter2{
 
     constructor(devices = []){
         super();
