@@ -1,6 +1,7 @@
-'use strict';
+import './libraries/eventemitter2.js';
+import './libraries/simple-statistics.js';
 
-class Button extends EventEmitter2{
+export class Button extends EventEmitter2{
     constructor(initialValue = 1, offValue = 1){
         super();
         this.lastValue = initialValue;
@@ -21,7 +22,7 @@ class Button extends EventEmitter2{
         }
     }
 }
-class CapasitiveSensor extends EventEmitter2{
+export class CapasitiveSensor extends EventEmitter2{
     constructor(threshold = 100){
         super();
         this.threshold = threshold;
@@ -51,5 +52,15 @@ class CapasitiveSensor extends EventEmitter2{
         let threshold = avg + 10*vari;
         this.threshold = threshold;
         this.mean = avg;
+    }
+}
+export class AnalogReader extends EventEmitter2{
+    constructor(){
+        super();
+        this.value = 0;
+    }
+    tick(value){
+        this.emit("tick", value);
+        this.value = value;
     }
 }

@@ -1,5 +1,5 @@
-'use strict';
-
+import './Devices.js';
+import './libraries/eventemitter2.js';
 class Board extends EventEmitter2{
 
     constructor(devices = []){
