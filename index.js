@@ -4,8 +4,16 @@ import {AnalogReader, CatagorialReader} from './Devices.js';
 import './libraries/p5.js';
 import './libraries/p5.serialport.js';
 import {Board} from './Arduino.js';
+import './libraries/eventemitter2.js';
 
-
+class Keybaord extends EventEmitter2{
+    constructor(){
+        super();
+        document.addEventListener('keypress', (event) => {          
+            this.emit('press', event);
+        });
+    }
+}
 
 var s = function(p5) {
     "use strict";
@@ -28,6 +36,7 @@ var s = function(p5) {
 
     let heartA = new CatagorialReader();
     let heartB = new AnalogReader();
+    let keyboard = new Keybaord();
     p5.setup = function(){   
         {// connection
             let board = new Board([heartA , heartB]);
@@ -48,7 +57,8 @@ var s = function(p5) {
             p5.createCanvas(p5.windowWidth, p5.windowHeight);
         }
         // TODO: remove
-        start();
+        // start();
+        
     }
     p5.draw = function(){   
 
@@ -64,11 +74,37 @@ var s = function(p5) {
     function showNewCut(cut){
         p5.image(cut, 0, 0, p5.windowWidth, p5.windowHeight);
     }
+    function detectNewEvent(agreeFn, disagreeFn, cleanBefore = true){
+        if(cleanBefore){
+            heartA.removeAllListeners(['change']);
+            keyboard.removeAllListeners(['press']);
+        }
+        heartA.on('change', value=>{
+            if(value == 1){
+                agreeFn();
+            }else if(value == 2){
+                disagreeFn();
+            }
+        });
+        keyboard.on('press', event=>{
+            switch (event.code) {
+                case 'KeyY':
+                    agreeFn();
+                    break;
+                case 'KeyN':
+                    disagreeFn();
+                    break;
+                default:
+                    break;
+            }
+        });
+    }
 
     // ================= Story ==================
 
     function start(){
         showNewCut(images.scene1.scene1_1);
+
     }
 
 }
