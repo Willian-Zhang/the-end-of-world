@@ -157,7 +157,11 @@ var s = function(p5) {
                     content: "input",
                   });
                 if(input.includes('scene')){
-                    s[input]();
+                    if( typeof eval(input) === 'function' ){
+                        eval(input+"()")
+                    }else{
+                        await swal(`"${input}" is not valid scene`);
+                    }
                 }
                 else{
                     gameState.state.blood = +input;
