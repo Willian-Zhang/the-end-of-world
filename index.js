@@ -249,20 +249,24 @@ var s = function(p5) {
     // ================= Story ==================
 
     function start(){
-        changeCut(images.scene1.scene1_1, scene1cut2, ()=>{}, bgms.scene1.Magica);
+        changeCut(images.scene1.scene1_1, scene1cut2, null, bgms.scene1.Magica);
         
     }
 
+    function scene1cut2(){
+        changeCut(images.scene1.scene1_2, scene2cut1, null, bgms.scene1.What_Lies_Within_2_2);
+    }
+
     function scene2cut1(){
-        changeCut(images.scene2.scene2_2, scene2cut2, scene2cut3, What_Lies_Within_2_2);
+        changeCut(images.scene2.scene2_2, scene2cut2, scene2cut3, bgms.scene2.What_Lies_Within_2_2);
     }
 
     function scene2cut2(){
-        changeCut(images.scene2.scene2_5, scene3cut1, null, Fantastica_2_5);
+        changeCut(images.scene2.scene2_5, scene3cut1, null, bgms.scene2.Fantastica_2_5);
     }
 
     function scene2cut3(){
-        changeCut(images.scene2.scene2_3, scene2be, null, Somnus_Ultima_2_be);
+        changeCut(images.scene2.scene2_3, scene2be, null, bgms.scene2.Somnus_Ultima_2_be);
     }
 
     function scene2be(){
@@ -270,55 +274,55 @@ var s = function(p5) {
     }
 
     function scene3cut1(){
-        changeCut(images.scene3.scene3_1, scene3cut2, scene3be, Nier_Copied_City_3_1);
+        changeCut(images.scene3.scene3_1, scene3cut2, scene3be, bgms.scene3.Nier_Copied_City_3_1);
     }
 
     function scene3cut2(){
-        changeCut(images.scene3.scene3_2, scene4cut1, null, You_Say_Run_3_2);
+        changeCut(images.scene3.scene3_2, scene4cut1, null, bgms.scene3.You_Say_Run_3_2);
     }
 
     function scene3be(){
-        changeCut(images.scene3.scene3_be, null, null, Weight_of_the_World_3_be);
+        changeCut(images.scene3.scene3_be, null, null, bgms.scene3.Weight_of_the_World_3_be);
     }
 
     function scene4cut1(){
-        changeCut(images.scene4.scene4_1, scene4be, scene4cut2, Layer_Cake_4_1);
+        changeCut(images.scene4.scene4_1, scene4be, scene4cut2, bgms.scene4.Layer_Cake_4_1);
     }
 
     function scene4cut2(){
-        changeCut(images.scene4.scene4_2, scene5cut1, null, Horizon_4_2);
+        changeCut(images.scene4.scene4_2, scene5cut1, null, bgms.scene4.Horizon_4_2);
     }
 
     function scene4be(){
-        changeCut(images.scene4.scene4_be, null, null, Sadness_4_be);
+        changeCut(images.scene4.scene4_be, null, null, bgms.scene4.Sadness_4_be);
     }
 
     function scene5cut1(){
-        changeCut(images.scene5.scene5_1, scene5cut2, scene5cut3, Dark_Colossus_5_1);
+        changeCut(images.scene5.scene5_1, scene5cut2, scene5cut3, bgms.scene5.Dark_Colossus_5_1);
     }
 
     function scene5cut2(){
-        changeCut(images.scene5.scene5_3, scene6cut1, null, don_think_twice_5_2);
+        changeCut(images.scene5.scene5_3, scene6cut1, null, bgms.scene5.don_think_twice_5_2);
     }
 
     function scene5cut3(){
-        changeCut(images.scene5.scene5_2, scene5be, null, Pokemon_5_3);
+        changeCut(images.scene5.scene5_2, scene5be, null, bgms.scene5.Pokemon_5_3);
     }
 
     function scene5be(){
-        changeCut(images.scene5.scene5_be, null, null, To_Zanarkand_5_be);
+        changeCut(images.scene5.scene5_be, null, null, bgms.scene5.To_Zanarkand_5_be);
     }
 
     function scene6cut1(){
-        changeCut(images.scene6.scene6_1, scene6be, goodend, song_of_the_Ancients_6_1);
+        changeCut(images.scene6.scene6_1, scene6be, goodend, bgms.scene6.song_of_the_Ancients_6_1);
     }
 
     function scene6be(){
-        changeCut(images.scene6.scene6_be, null, null, Little_Busters_6_be);
+        changeCut(images.scene6.scene6_be, null, null, bgms.scene6.Little_Busters_6_be);
     }
 
     function goodend(){
-        changeCut(images.scene6.ge, null, null, Dearly_Beloved_Kingdom_Hearts_6_ge);
+        changeCut(images.scene6.ge, null, null, bgms.scene6.Dearly_Beloved_Kingdom_Hearts_6_ge);
     }
 
 
