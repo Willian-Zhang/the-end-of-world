@@ -251,12 +251,13 @@ var s = function(p5) {
     // ================= Story ==================
 
     function start(){
-        changeCut(images.scene1.scene1_1, scene1cut2, null, bgms.scene1.Magica);
+        changeCut(images.scene1.scene1_1, scene1cut2, null, bgms.scene1.Magica, 
+            ["sasa", "bha"]);
         
     }
 
     function scene1cut2(){
-        changeCut(images.scene1.scene1_2, scene2cut1, null, null);
+        changeCut(images.scene1.scene1_2, scene2cut1, null, null,["sss"]);
     }
 
     function scene2cut1(){
