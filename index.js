@@ -5,6 +5,7 @@ import './libraries/p5.js';
 import './libraries/p5.serialport.js';
 import {Board} from './Arduino.js';
 import './libraries/eventemitter2.js';
+import './libraries/howler.js';
 
 class Keybaord extends EventEmitter2{
     constructor(){
@@ -21,6 +22,12 @@ var s = function(p5) {
         scene1:{
             scene1_1: null,
             scene1_2: null,
+        },
+        scene2:{}
+    };
+    var bgms = {
+        scene1:{
+            song: 'Magica.aac',
         }
     };
     const resourcePath = 'resources';
@@ -30,6 +37,14 @@ var s = function(p5) {
         Object.keys(images).forEach(scene=>{
             Object.keys(images[scene]).forEach(cut=>{
                 images[scene][cut]  = p5.loadImage(`${resourcePath}/${scene}/${cut}.png`);
+            });
+        });
+        Object.keys(bgms).forEach(scene=>{
+            Object.keys(bgms[scene]).forEach(song=>{
+                bgms[scene][song]  = new Howl({
+                    src: [`${resourcePath}/${scene}/${bgms[scene][song]}`],
+                    autoplay: false, html5:true
+                  });
             });
         });
     }
@@ -79,7 +94,7 @@ var s = function(p5) {
             heartA.removeAllListeners(['change']);
             keyboard.removeAllListeners(['press']);
         }
-        heartA.on('change', value=>{
+        heartA.once('change', value=>{
             if(value == 1){
                 agreeFn();
             }else if(value == 2){
@@ -99,12 +114,39 @@ var s = function(p5) {
             }
         });
     }
+    function showDialog(text){
+        let margin = 10;
+        let size = 0.3;
+        let height = p5.windowHeight * size - 2 * margin;
+        let width = p5.windowWidth - 2 * margin;
+        let radios = 5;
+
+        p5.rect(margin, p5.windowHeight - height - margin, width, height,radios,radios,radios,radios);
+
+    }
+    var np = null;
+    function changeCut(cut, agreeFn, disagreeFn, bgm = null, dialog = []){
+        showNewCut(cut);
+        detectNewEvent(agreeFn, disagreeFn);
+        if(bgm){
+            if(np){
+                let thisNP = np;
+                thisNP.fade(1, 0, 1000);
+                setTimeout(()=>{
+                    thisNP.stop();
+                }, 1000);
+            }
+            setTimeout(()=>{
+                np = bgm.play();
+            }, 500);
+        }
+    }
 
     // ================= Story ==================
 
     function start(){
-        showNewCut(images.scene1.scene1_1);
-
+        changeCut(images.scene1.scene1_1, ()=>{}, ()=>{}, bgms.scene1.song);
+        
     }
 
 }

@@ -26,12 +26,12 @@ export class Board extends EventEmitter2{
         this.serial.on('list', (portList)=>{
             let filtered = portList.filter(name=>name.startsWith('/dev/cu.usbmodem'));
             if(filtered.length == 0){
-                throw new PositionError('No port found!');
+                throw new Error('No port found!');
             }else if(filtered.length == 1){
                 this.serial.open(filtered[0], options);
                 return filtered[0];
             }else{
-                throw new PositionError('Mutiple ports found:'+string(filtered));
+                throw new Error('Mutiple ports found:'+string(filtered));
             }
         }); 
         this.serial.on('data', this.processData.bind(this));
