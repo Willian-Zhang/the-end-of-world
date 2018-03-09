@@ -331,7 +331,7 @@ var s = function(p5) {
         if(blood < 0){
             gameState.removeAllListeners('report');
             changeCut(images.scene3.scene3_be, popGameEnd, null, bgms.all.Weight_of_the_World, 
-                ["Oh no... //TODO:"]);
+                ["Oh no...your heart...it broke"]);
             set_blood(0);
         }else{
             set_blood(blood);
@@ -387,7 +387,7 @@ var s = function(p5) {
 
     function scene4cut1(){
         changeCut(images.scene4.scene4_1, scene4be, scene4cut2, bgms.scene4.Layer_Cake_4_1, 
-            ["It’s been a long day and you haven’t found shelter or food or water. You are desperate.", " You need energy, and you know that you will need to stock up...", "you encounter a stranger. He has a gallon of water and so much food.", " It’s so tempting, and he’s so weak...do you take her food and water?"]);
+            ["It’s been a long day and you haven’t found shelter or food or water. You are desperate.", " You need energy, and you know that you will need to stock up...", "you encounter a stranger. He has a gallon of water and so much food.", " It’s so tempting, and he’s so weak...do you take his food and water?"]);
     }
 
     function scene4cut2(){
@@ -422,7 +422,7 @@ var s = function(p5) {
 
     function scene6cut1(){
         changeCut(images.scene6.scene6_1, scene6be, goodend, bgms.scene5.Pokemon_5_3, 
-            ["THE WOLVES ARE EATING OUR CAT. OH NO, THEY’RE EATING YOU TOO.", " WHAT DO I DO?!? Do I save my cat?"]);
+            ["THE WOLVES ARE EATING OUR CAT. OH NO, THEY’RE EATING YOUR PARTNER TOO!", " WHAT DO I DO?!? Do I save my cat?"]);
     }
 
     function scene6be(){
