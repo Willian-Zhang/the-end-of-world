@@ -110,18 +110,7 @@ var s = function(p5) {
     let keyboard = new Keybaord();
     p5.setup = function(){   
         {// connection
-            let board = new Board([heartA , heartB]);
-            let port = board.connect({baudrate: 9600});
-            console.log(`Connecting on ${port}...`);
-            board.on('connected', ()=>{
-                console.log('connected');
-        
-                // Start game here:
-                start();
-            });
-            board.on('warning', (warning)=>{
-                console.warn(warning);
-            });
+            start();
         }
         
         {// 
