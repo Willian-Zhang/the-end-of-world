@@ -9,7 +9,7 @@ export class Keybaord extends EventEmitter2{
 }
 
 export class GameState extends EventEmitter2{
-    constructor(drop_rate = 3.0, update_rate = 0.2, not_touching_threshold = 50.0, report_rate = 0.05){
+    constructor(drop_rate = 0.3, update_rate = 0.2, not_touching_threshold = 50.0, report_rate = 0.05){
         super();
         this.state = {};
         this.reset();
