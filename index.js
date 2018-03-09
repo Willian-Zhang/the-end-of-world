@@ -150,6 +150,7 @@ var s = function(p5) {
             clearEventListeners();
         }
         heartA.once('change', value=>{
+            console.log(value);
             if(value == 1){
                 agreeFn();
             }else if(value == 2){
