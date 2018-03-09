@@ -58,7 +58,7 @@ var s = function(p5) {
         },
         scene2:{
             Somnus_Ultima_2_be: '2_be_SomnusUltima.mp3',
-            What_Lies_Within_2_2: '2_2_WhatLiesWithin.mp3',
+            What_Lies_Within_2_2: '2_2_WhatLiesWithin.aac',
             Fantastica_2_5: '2_5_Fantastica.aac',
         },
         scene3:{
