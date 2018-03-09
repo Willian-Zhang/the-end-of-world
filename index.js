@@ -252,8 +252,7 @@ var s = function(p5) {
 
     function start(){
         changeCut(images.scene1.scene1_1, scene1cut2, null, bgms.scene1.Magica, 
-            ["sasa", "bha"]);
-        
+            ["sasa"]);
     }
 
     function scene1cut2(){
@@ -261,7 +260,7 @@ var s = function(p5) {
     }
 
     function scene2cut1(){
-        changeCut(images.scene2.scene2_2, scene2cut2, scene2cut3, bgms.scene2.What_Lies_Within_2_2);
+        changeCut(images.scene2.scene2_2, scene2cut2, scene2cut3, bgms.scene2.What_Lies_Within_2_2,[""]);
     }
 
     function scene2cut2(){
