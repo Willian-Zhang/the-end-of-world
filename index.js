@@ -10,7 +10,7 @@ import {Keybaord, GameState} from './GameEntity.js';
 var np = null;
 var s = function(p5) {
     "use strict";
-    var gameState = new GameState();
+    
     var images = {
         scene1:{
             scene1_1: null,
@@ -124,7 +124,12 @@ var s = function(p5) {
     p5.draw = function(){   
 
     }
-
+    var gameState = new GameState();
+    heartB.on('tick', (value)=>{
+        if(gameState.state.blood < 120){
+            gameState.add(value/255);
+        }
+    })
     // let bloodDOM = $('#blood')[0];
     var bloodBar = new ldBar("#blood");
     function set_blood(value){
@@ -171,8 +176,11 @@ var s = function(p5) {
         keyboard.on('press', event=>{
             switch (event.code) {
                 case 'Space':
+                case 'ArrowDown':
+                case 'ArrowRight':
                     onPress();
                     break;
+                
             }
         });
     }
@@ -208,7 +216,21 @@ var s = function(p5) {
         p5.textSize(textSize);
         p5.textStyle(p5.BOLD);
         p5.textAlign(p5.CENTER);
-        p5.text('Do action', p5.windowWidth/2, p5.windowHeight - textMargin - margin);
+        p5.text('<action>', p5.windowWidth/2, p5.windowHeight - textMargin - margin);
+        p5.pop();
+    }
+    function showSpaceAction(){
+        let margin = 10;
+        let size = 0.3;
+        let textMargin = 15;
+        let textSize = 24;
+        p5.push();
+        p5.fill(128);
+        p5.textFont('Helvetica');
+        p5.textSize(textSize);
+        p5.textStyle(p5.BOLD);
+        p5.textAlign(p5.CENTER);
+        p5.text('⇓', p5.windowWidth/2, p5.windowHeight - textMargin - margin);
         p5.pop();
     }
     
@@ -232,6 +254,7 @@ var s = function(p5) {
                 showDoAction();
                 detectNewEvent(agreeFn, disagreeFn);
             }else{
+                showSpaceAction();
                 detectSpace(agreeFn);
             }
         }
@@ -244,6 +267,7 @@ var s = function(p5) {
 
             
             var loopStep = function(func){
+                showSpaceAction();
                 detectSpace(()=>{
                     func();
                     if(functionsToCall.length > 0){
@@ -282,27 +306,32 @@ var s = function(p5) {
         }
     }
     function start(){
+        gameState.not_touching_threshold = heartB.value/255;
         gameState.reset();
+        gameState.on('report', blood_report);
         changeCut(images.scene1.scene1_1, scene1cut2, null, bgms.scene1.Magica, 
             ["Welcome to the chaotic end of the world. The only people remaining appear to be you and your partner."]);
     }
 
     function scene1cut2(){
-        gameState.on('report', blood_report);
         gameState.start_counting();
-        changeCut(images.scene1.scene1_2, scene2cut1, null, null,["You have to make decisions, and you have to make them fast."]);
+        changeCut(images.scene1.scene1_2, scene2cut1, null, null,
+            ["You have to make decisions, and you have to make them fast."]);
     }
 
     function scene2cut1(){
-        changeCut(images.scene2.scene2_2, scene2cut2, scene2cut3, bgms.scene2.What_Lies_Within_2_2,["Quick, you must decide if you should leave the building and seek resources or remain inside so that you can be sheltered."]);
+        changeCut(images.scene2.scene2_2, scene2cut2, scene2cut3, bgms.scene2.What_Lies_Within_2_2,
+            ["Quick, you must decide if you should leave the building and seek resources or remain inside so that you can be sheltered."]);
     }
 
     function scene2cut2(){
-        changeCut(images.scene2.scene2_5, scene3cut1, null, bgms.scene2.Fantastica_2_5,["Wow, you made it out of the building just in time!"]);
+        changeCut(images.scene2.scene2_5, scene3cut1, null, bgms.scene2.Fantastica_2_5,
+            ["Wow, you made it out of the building just in time!"]);
     }
 
     function scene2cut3(){
-        changeCut(images.scene2.scene2_3, scene2be, null, bgms.scene2.Somnus_Ultima_2_be,["OH NO! You should’ve left the building. It’s falling! Do something!!!!"]);
+        changeCut(images.scene2.scene2_3, scene2be, null, bgms.scene2.Somnus_Ultima_2_be,
+            ["OH NO! You should’ve left the building. It’s falling! Do something!!!!"]);
     }
 
     function scene2be(){
@@ -310,55 +339,68 @@ var s = function(p5) {
     }
 
     function scene3cut1(){
-        changeCut(images.scene3.scene3_1, scene3cut2, scene3be, bgms.scene3.Nier_Copied_City_3_1, ["It looks like the only way to stay alive is to find a panic room and get access to protection and resources. Do you take a chance and run to the panic room or do you try to find the closest shelter?"]);
+        changeCut(images.scene3.scene3_1, scene3cut2, scene3be, bgms.scene3.Nier_Copied_City_3_1, 
+            ["It looks like the only way to stay alive is to find a panic room and get access to protection and resources.", " Do you take a chance and run to the panic room or do you try to find the closest shelter?"]);
     }
 
     function scene3cut2(){
-        changeCut(images.scene3.scene3_2, scene4cut1, null, bgms.scene3.You_Say_Run_3_2),["You guys are great at sticking together. You are just now realizing that your bond is so special that you cannot be separated"];
+        changeCut(images.scene3.scene3_2, scene4cut1, null, bgms.scene3.You_Say_Run_3_2),
+        ["You guys are great at sticking together.", " You are just now realizing that your bond is so special that you cannot be separated"];
     }
 
     function scene3be(){
-        changeCut(images.scene3.scene3_be, popGameEnd, null, bgms.scene3.Weight_of_the_World_3_be, ["Oh no...this life or death situation has caused you two to split up and proceed alone. Unfortunately you must end your relationship."]);
+        changeCut(images.scene3.scene3_be, popGameEnd, null, bgms.scene3.Weight_of_the_World_3_be, 
+            ["Oh no...this life or death situation has caused you two to split up and proceed alone.", " Unfortunately you must end your relationship."]);
     }
 
     function scene4cut1(){
-        changeCut(images.scene4.scene4_1, scene4be, scene4cut2, bgms.scene4.Layer_Cake_4_1, ["It’s been a long day and you haven’t found shelter or food or water. You are desperate. You need energy, and you know that you will need to stock up...you encounter a stranger. He has a gallon of water and so much food. It’s so tempting, and he’s so weak...do you take it?"]);
+        changeCut(images.scene4.scene4_1, scene4be, scene4cut2, bgms.scene4.Layer_Cake_4_1, 
+            ["It’s been a long day and you haven’t found shelter or food or water. You are desperate.", " You need energy, and you know that you will need to stock up...", "you encounter a stranger. He has a gallon of water and so much food.", " It’s so tempting, and he’s so weak...do you take her food and water?"]);
     }
 
     function scene4cut2(){
-        changeCut(images.scene4.scene4_2, scene5cut1, null, bgms.scene4.Horizon_4_2, ["That extra gallon of water was just enough for you and your partner to push forward and continue your journey. It’s survival of the fittest out here!"]);
+        changeCut(images.scene4.scene4_2, scene5cut1, null, bgms.scene4.Horizon_4_2, 
+            ["That extra gallon of water was just enough for you and your partner to push forward and continue your journey.", " It’s survival of the fittest out here!"]);
     }
 
     function scene4be(){
-        changeCut(images.scene4.scene4_be, popGameEnd, null, bgms.scene4.Sadness_4_be, ["Your both become exhausted and pass out. This is the end. You have both died."]);
+        changeCut(images.scene4.scene4_be, popGameEnd, null, bgms.scene4.Sadness_4_be, 
+            ["Your both become exhausted and pass out. This is the end. You have both died."]);
     }
 
     function scene5cut1(){
-        changeCut(images.scene5.scene5_1, scene5cut2, scene5cut3, bgms.scene5.Dark_Colossus_5_1, ["What are those wild dogs doing? What’s that they’re eating? Oh no, it’s a baby It is being eaten? Do you decide to save yourself and your partner instead?"]);
+        changeCut(images.scene5.scene5_1, scene5cut2, scene5cut3, bgms.scene5.Dark_Colossus_5_1, 
+            ["What are those wild dogs doing? What’s that they’re eating?", " Oh no, it’s a baby It is being eaten?", " Do you decide to save yourself and your partner instead?"]);
     }
 
     function scene5cut2(){
-        changeCut(images.scene5.scene5_3, scene6cut1, null, bgms.scene5.don_think_twice_5_2,["Oh my gosh! You almost died. That baby was going to die anyway. At least you made it out alive and your partner is there to keep you company"]);
+        changeCut(images.scene5.scene5_3, scene6cut1, null, bgms.scene5.don_think_twice_5_2,
+            ["Oh my gosh! You almost died. That baby was going to die anyway.", " At least you made it out alive and your partner is there to keep you company"]);
     }
 
     function scene5cut3(){
-        changeCut(images.scene5.scene5_2, scene5be, null, bgms.scene6.song_of_the_Ancients_6_1,["Oh no! Not your partner!Run!!!"]);
+        changeCut(images.scene5.scene5_2, scene5be, null, bgms.scene6.song_of_the_Ancients_6_1,
+            ["Oh no! Not your partner!Run!!!"]);
     }
 
     function scene5be(){
-        changeCut(images.scene5.scene5_be, popGameEnd, null, bgms.scene5.To_Zanarkand_5_be,["While you manage to get away with the baby, your partner is eaten by wolves. You are left alone with a baby in this scary world."]);
+        changeCut(images.scene5.scene5_be, popGameEnd, null, bgms.scene5.To_Zanarkand_5_be,
+            ["While you manage to get away with the baby, your partner is eaten by wolves.", " You are left alone with a baby in this scary world."]);
     }
 
     function scene6cut1(){
-        changeCut(images.scene6.scene6_1, scene6be, goodend, bgms.scene5.Pokemon_5_3, ["THE WOLVES ARE EATING OUR CAT. OH NO, THEY’RE EATING YOU TOO. WHAT DO I DO?!? Do I save my cat?"]);
+        changeCut(images.scene6.scene6_1, scene6be, goodend, bgms.scene5.Pokemon_5_3, 
+            ["THE WOLVES ARE EATING OUR CAT. OH NO, THEY’RE EATING YOU TOO.", " WHAT DO I DO?!? Do I save my cat?"]);
     }
 
     function scene6be(){
-        changeCut(images.scene6.scene6_be, popGameEnd, null, bgms.scene6.Little_Busters_6_be,["The truth is, you just saved a cat instead of saving your partner… Your partner is now dead and you are stuck with your cat."]);
+        changeCut(images.scene6.scene6_be, popGameEnd, null, bgms.scene6.Little_Busters_6_be,
+            ["The truth is, you just saved a cat instead of saving your partner…", " Your partner is now dead and you are stuck with your cat."]);
     }
 
     function goodend(){
-        changeCut(images.scene6.ge, popGameEnd, null, bgms.scene6.Dearly_Beloved_Kingdom_Hearts_6_ge,["Woh, I can’t believe that was a nightmare. None of it is real. The love of your life is right next to you."]);
+        changeCut(images.scene6.ge, popGameEnd, null, bgms.scene6.Dearly_Beloved_Kingdom_Hearts_6_ge,
+            ["Woh, I can’t believe that was a nightmare.", " None of it is real. The love of your life is right next to you."]);
     }
 
 
