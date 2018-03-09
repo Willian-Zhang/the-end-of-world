@@ -10,7 +10,8 @@ import {Keybaord, GameState} from './GameEntity.js';
 var np = null;
 var s = function(p5) {
     "use strict";
-    
+    let reward = 10;
+    let panelty  = 20;
     var images = {
         scene1:{
             scene1_1: null,
@@ -151,17 +152,21 @@ var s = function(p5) {
         heartA.once('change', value=>{
             console.log(value);
             if(value == 1){
+                gameState.add(reward);
                 agreeFn();
             }else if(value == 2){
+                gameState.add(-panelty);
                 disagreeFn();
             }
         });
         keyboard.on('press', event=>{
             switch (event.code) {
-                case 'KeyY':
+                case 'KeyA':
+                    gameState.add(reward);
                     agreeFn();
                     break;
-                case 'KeyN':
+                case 'KeyD':
+                    gameState.add(-panelty);
                     disagreeFn();
                     break;
                 default:
@@ -169,6 +174,7 @@ var s = function(p5) {
             }
         });
     }
+
     function detectSpace(onPress, cleanBefore = true){
         if(cleanBefore){
             clearEventListeners();
