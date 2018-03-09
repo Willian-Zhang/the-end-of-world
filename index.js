@@ -217,9 +217,9 @@ var s = function(p5) {
         }
         var lastFunction = function(){
             if(disagreeFn){
-                detectSpace(agreeFn);
-            }else{
                 detectNewEvent(agreeFn, disagreeFn);
+            }else{
+                detectSpace(agreeFn);
             }
         }
         if(dialog.length > 0){
