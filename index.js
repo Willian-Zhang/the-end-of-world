@@ -115,17 +115,19 @@ var s = function(p5) {
             } catch (error) {
                 start();
             }
-            let port = board.connect({baudrate: 9600});
-            console.log(`Connecting on ${port}...`);
-            board.on('connected', ()=>{
-                console.log('connected');
-        
-                // Start game here:
-                start();
-            });
-            board.on('warning', (warning)=>{
-                console.warn(warning);
-            });
+            if(board){
+                let port = board.connect({baudrate: 9600});
+                console.log(`Connecting on ${port}...`);
+                board.on('connected', ()=>{
+                    console.log('connected');
+            
+                    // Start game here:
+                    start();
+                });
+                board.on('warning', (warning)=>{
+                    console.warn(warning);
+                });
+            }
         }
         
         {// 
