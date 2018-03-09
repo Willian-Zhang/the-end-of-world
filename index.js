@@ -110,7 +110,7 @@ var s = function(p5) {
     let keyboard = new Keybaord();
     p5.setup = function(){   
         {// connection
-            start();
+            setTimeout(start, 500);
         }
         
         {// 
