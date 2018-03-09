@@ -4,29 +4,13 @@ import {AnalogReader, CatagorialReader} from './Devices.js';
 import './libraries/p5.js';
 import './libraries/p5.serialport.js';
 import {Board} from './Arduino.js';
-import './libraries/eventemitter2.js';
 import './libraries/howler.js';
+import {Keybaord, GameState} from './GameEntity.js';
 
-class Keybaord extends EventEmitter2{
-    constructor(){
-        super();
-        document.addEventListener('keypress', (event) => {          
-            this.emit('press', event);
-        });
-    }
-}
 var np = null;
 var s = function(p5) {
     "use strict";
-    var gameStates = {
-        blood : 80
-    };
-    function resetGameState(){
-        gameStates = {
-            blood : 80
-        };
-        set_blood(gameStates.blood);
-    }
+    var gameState = new GameState();
     var images = {
         scene1:{
             scene1_1: null,
@@ -89,6 +73,9 @@ var s = function(p5) {
             song_of_the_Ancients_6_1: '6_1songoftheAncients.aac',
             Little_Busters_6_be: '6_beLittleBustersPianoCover.aac',
             Dearly_Beloved_Kingdom_Hearts_6_ge: '6_geDearlyBelovedKingdomHearts.aac',
+        },
+        all:{
+            Weight_of_the_World:"TheWeightoftheWorld_jp.m4a"
         }
     };
     const resourcePath = 'resources';
@@ -132,8 +119,6 @@ var s = function(p5) {
         {// 
             p5.createCanvas(p5.windowWidth, p5.windowHeight);
         }
-        // TODO: remove
-        // start();
         
     }
     p5.draw = function(){   
@@ -207,8 +192,24 @@ var s = function(p5) {
         p5.fill('rgba(76,176,244,0.5)');
         p5.rect(x, y, width, height,radios,radios,radios,radios);
         p5.pop();
+        p5.push();
         p5.textSize(32);
-        p5.text(text, x + textMargin, y + textMargin , width - textMargin, height - textMargin);
+        p5.text(text, x + textMargin, y + textMargin , width - 2*textMargin, height - 2*textMargin);
+        p5.pop();
+    }
+    function showDoAction(){
+        let margin = 10;
+        let size = 0.3;
+        let textMargin = 15;
+        let textSize = 24;
+        p5.push();
+        p5.fill(128);
+        p5.textFont('Helvetica');
+        p5.textSize(textSize);
+        p5.textStyle(p5.BOLD);
+        p5.textAlign(p5.CENTER);
+        p5.text('Do action', p5.windowWidth/2, p5.windowHeight - textMargin - margin);
+        p5.pop();
     }
     
     function changeCut(cut, agreeFn, disagreeFn=null, bgm = null, dialog = []){
@@ -228,6 +229,7 @@ var s = function(p5) {
         }
         var lastFunction = function(){
             if(disagreeFn){
+                showDoAction();
                 detectNewEvent(agreeFn, disagreeFn);
             }else{
                 detectSpace(agreeFn);
@@ -260,21 +262,34 @@ var s = function(p5) {
     // ================= Story ==================
 
     async function popGameEnd(){
+        gameState.removeAllListeners('report');
         let value = await swal({
             title: "Do you want to restart the game?",
             icon: "info",
             button: "restart",
             dangerMode: true,
           });
-        console.log(value)
+        start();
+    }
+    function blood_report(blood){
+        if(blood < 0){
+            gameState.removeAllListeners('report');
+            changeCut(images.scene3.scene3_be, popGameEnd, null, bgms.all.Weight_of_the_World, 
+                ["Oh no... //TODO:"]);
+            set_blood(0);
+        }else{
+            set_blood(blood);
+        }
     }
     function start(){
-        resetGameState();
+        gameState.reset();
         changeCut(images.scene1.scene1_1, scene1cut2, null, bgms.scene1.Magica, 
             ["Welcome to the chaotic end of the world. The only people remaining appear to be you and your partner."]);
     }
 
     function scene1cut2(){
+        gameState.on('report', blood_report);
+        gameState.start_counting();
         changeCut(images.scene1.scene1_2, scene2cut1, null, null,["You have to make decisions, and you have to make them fast."]);
     }
 
