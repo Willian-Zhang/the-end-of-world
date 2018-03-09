@@ -141,10 +141,13 @@ var s = function(p5) {
     function showNewCut(cut){
         p5.image(cut, 0, 0, p5.windowWidth, p5.windowHeight);
     }
+    function clearEventListeners(){
+        heartA.removeAllListeners(['change']);
+        keyboard.removeAllListeners(['press']);
+    }
     function detectNewEvent(agreeFn, disagreeFn, cleanBefore = true){
         if(cleanBefore){
-            heartA.removeAllListeners(['change']);
-            keyboard.removeAllListeners(['press']);
+            clearEventListeners();
         }
         heartA.once('change', value=>{
             if(value == 1){
@@ -166,20 +169,40 @@ var s = function(p5) {
             }
         });
     }
+    function detectSpace(onPress, cleanBefore = true){
+        if(cleanBefore){
+            clearEventListeners();
+        }
+        keyboard.on('press', event=>{
+            switch (event.code) {
+                case 'Space':
+                    onPress();
+                    break;
+            }
+        });
+    }
     function showDialog(text){
         let margin = 10;
         let size = 0.3;
         let height = p5.windowHeight * size - 2 * margin;
         let width = p5.windowWidth - 2 * margin;
+        let x = margin;
+        let y = p5.windowHeight - height - margin;
         let radios = 5;
+        let textMargin = 15;
 
-        p5.rect(margin, p5.windowHeight - height - margin, width, height,radios,radios,radios,radios);
-
+        p5.push();
+        p5.stroke(`rgba(255,255,255, 0.7)`);
+        p5.strokeWeight(6);
+        p5.fill('rgba(76,176,244,0.5)');
+        p5.rect(x, y, width, height,radios,radios,radios,radios);
+        p5.pop();
+        p5.textSize(32);
+        p5.text(text, x + textMargin, y + textMargin , width - textMargin, height - textMargin);
     }
     var np = null;
-    function changeCut(cut, agreeFn, disagreeFn, bgm = null, dialog = []){
+    function changeCut(cut, agreeFn, disagreeFn=null, bgm = null, dialog = []){
         showNewCut(cut);
-        detectNewEvent(agreeFn, disagreeFn);
         if(bgm){
             if(np){
                 let thisNP = np;
@@ -191,6 +214,35 @@ var s = function(p5) {
             setTimeout(()=>{
                 np = bgm.play();
             }, 500);
+        }
+        var lastFunction = function(){
+            if(disagreeFn){
+                detectSpace(agreeFn);
+            }else{
+                detectNewEvent(agreeFn, disagreeFn);
+            }
+        }
+        if(dialog.length > 0){
+            
+            let functionsToCall = dialog.map((sentense) =>{
+                showNewCut(cut);
+                showDialog(sentense);
+            })
+
+            var current = 0;
+            
+            var loopStep = function(){
+                detectSpace(()=>{
+                    if(functionsToCall.length > 0){
+                        loopStep(functionsToCall.shift());
+                    }else{
+                        lastFunction()
+                    }
+                })
+            }
+            loopStep(functionsToCall.shift());
+        }else{
+            lastFunction();
         }
     }
 
