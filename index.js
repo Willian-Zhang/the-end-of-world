@@ -110,9 +110,8 @@ var s = function(p5) {
     let keyboard = new Keybaord();
     p5.setup = function(){   
         {// connection
-            let board;
             try {
-                board = new Board([heartA , heartB]);
+                let board = new Board([heartA , heartB]);
             } catch (error) {
                 start();
             }
