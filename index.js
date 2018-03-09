@@ -58,28 +58,28 @@ var s = function(p5) {
         scene2:{
             Somnus_Ultima_2_be: '2_be_SomnusUltima.mp3',
             What_Lies_Within_2_2: '2_2_WhatLiesWithin.mp3',
-            Fantastica_2_5: '2_5_Fantastica.acc',
+            Fantastica_2_5: '2_5_Fantastica.aac',
         },
         scene3:{
             Nier_Copied_City_3_1: '3_1_NierCopiedCity.aac',
-            You_Say_Run_3_2: '3_2_YouSayRun.acc',
-            Weight_of_the_World_3_be: '3_be_TheWeightoftheWorld.acc',
+            You_Say_Run_3_2: '3_2_YouSayRun.aac',
+            Weight_of_the_World_3_be: '3_be_TheWeightoftheWorld.aac',
         },
         scene4:{
             Layer_Cake_4_1 : '4_1LayerCake.aac',
-            Horizon_4_2: '4_2Horizon.acc',
-            Sadness_4_be: '4_beSadness.acc',
+            Horizon_4_2: '4_2Horizon.aac',
+            Sadness_4_be: '4_beSadness.aac',
         },
         scene5:{
             Dark_Colossus_5_1: '5_1DarkColossus.aac',
-            don_think_twice_5_2: '5_2dontthinktwice.acc',
-            Pokemon_5_3: '5_3PokemonOmegaRubyAlphaSapphire.acc',
-            To_Zanarkand_5_be: '5_beToZanarkand.acc',
+            don_think_twice_5_2: '5_2dontthinktwice.aac',
+            Pokemon_5_3: '5_3PokemonOmegaRubyAlphaSapphire.aac',
+            To_Zanarkand_5_be: '5_beToZanarkand.aac',
         },
         scene6:{
             song_of_the_Ancients_6_1: '6_1songoftheAncients.aac',
-            Little_Busters_6_be: '6_beLittleBustersPianoCover.acc',
-            Dearly_Beloved_Kingdom_Hearts_6_ge: '6_geDearlyBelovedKingdomHearts.acc',
+            Little_Busters_6_be: '6_beLittleBustersPianoCover.aac',
+            Dearly_Beloved_Kingdom_Hearts_6_ge: '6_geDearlyBelovedKingdomHearts.aac',
         }
     };
     const resourcePath = 'resources';
