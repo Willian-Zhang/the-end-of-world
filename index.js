@@ -18,6 +18,15 @@ class Keybaord extends EventEmitter2{
 var np = null;
 var s = function(p5) {
     "use strict";
+    var gameStates = {
+        blood : 80
+    };
+    function resetGameState(){
+        gameStates = {
+            blood : 80
+        };
+        set_blood(gameStates.blood);
+    }
     var images = {
         scene1:{
             scene1_1: null,
@@ -247,10 +256,16 @@ var s = function(p5) {
             lastFunction();
         }
     }
-
+    
     // ================= Story ==================
 
+    async function popGameEnd(){
+        let value = await swal("Hi");
+        console.log(value)
+        
+    }
     function start(){
+        resetGameState();
         changeCut(images.scene1.scene1_1, scene1cut2, null, bgms.scene1.Magica, 
             ["Welcome to the chaotic end of the world. The only people remaining appear to be you and your partner."]);
     }
@@ -272,7 +287,7 @@ var s = function(p5) {
     }
 
     function scene2be(){
-        changeCut(images.scene2.scene2_be, null, null, null);
+        changeCut(images.scene2.scene2_be, popGameEnd, null, null);
     }
 
     function scene3cut1(){
@@ -284,7 +299,7 @@ var s = function(p5) {
     }
 
     function scene3be(){
-        changeCut(images.scene3.scene3_be, null, null, bgms.scene3.Weight_of_the_World_3_be);
+        changeCut(images.scene3.scene3_be, popGameEnd, null, bgms.scene3.Weight_of_the_World_3_be);
     }
 
     function scene4cut1(){
@@ -296,7 +311,7 @@ var s = function(p5) {
     }
 
     function scene4be(){
-        changeCut(images.scene4.scene4_be, null, null, bgms.scene4.Sadness_4_be);
+        changeCut(images.scene4.scene4_be, popGameEnd, null, bgms.scene4.Sadness_4_be);
     }
 
     function scene5cut1(){
@@ -312,7 +327,7 @@ var s = function(p5) {
     }
 
     function scene5be(){
-        changeCut(images.scene5.scene5_be, null, null, bgms.scene5.To_Zanarkand_5_be);
+        changeCut(images.scene5.scene5_be, popGameEnd, null, bgms.scene5.To_Zanarkand_5_be);
     }
 
     function scene6cut1(){
@@ -320,11 +335,11 @@ var s = function(p5) {
     }
 
     function scene6be(){
-        changeCut(images.scene6.scene6_be, null, null, bgms.scene6.Little_Busters_6_be);
+        changeCut(images.scene6.scene6_be, popGameEnd, null, bgms.scene6.Little_Busters_6_be);
     }
 
     function goodend(){
-        changeCut(images.scene6.ge, null, null, bgms.scene6.Dearly_Beloved_Kingdom_Hearts_6_ge);
+        changeCut(images.scene6.ge, popGameEnd, null, bgms.scene6.Dearly_Beloved_Kingdom_Hearts_6_ge);
     }
 
 
