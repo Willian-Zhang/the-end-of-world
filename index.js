@@ -144,6 +144,20 @@ var s = function(p5) {
     function clearEventListeners(){
         heartA.removeAllListeners(['change']);
         keyboard.removeAllListeners(['press']);
+        keyboard.on('press', async event=>{
+            if(event.code === "Backquote"){
+                let input = await swal("Cheatcode:", {
+                    content: "input",
+                  });
+                if(input.includes('scene')){
+                    s[input]();
+                }
+                else{
+                    gameState.state.blood = +input;
+                }
+            }
+            
+        });
     }
     function detectNewEvent(agreeFn, disagreeFn, cleanBefore = true){
         if(cleanBefore){
