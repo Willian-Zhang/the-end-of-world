@@ -23,11 +23,52 @@ var s = function(p5) {
             scene1_1: null,
             scene1_2: null,
         },
-        scene2:{}
+        scene2:{
+            scene2_2: null,
+            scene2_3: null,
+            scene2_5: null,
+            scene2_be: null,
+        },
+        scene3:{
+            scene3_1: null,
+            scene3_2: null,
+            scene3_be: null,
+        },
+        scene4:{
+            scene4_1: null,
+            scene4_2: null,
+            scene4_be: null,
+        },
+        scene5:{
+            scene5_1: null,
+            scene5_2: null,
+            scene5_3: null,
+            scene5_be: null,
+        },
+        scene6:{
+            scene6_1: null,
+            ge: null,
+            scene6_be: null,
+        }
     };
     var bgms = {
         scene1:{
-            song: 'Magica.aac',
+            Magica: 'Magica.aac',
+        },
+        scene2:{
+            Magica: 'Magica.aac',
+        },
+        scene3:{
+            Magica: 'Magica.aac',
+        },
+        scene4:{
+            Magica: 'Magica.aac',
+        },
+        scene5:{
+            Magica: 'Magica.aac',
+        },
+        scene6:{
+            Magica: 'Magica.aac',
         }
     };
     const resourcePath = 'resources';
@@ -197,9 +238,78 @@ var s = function(p5) {
     // ================= Story ==================
 
     function start(){
-        changeCut(images.scene1.scene1_1, ()=>{}, ()=>{}, bgms.scene1.song);
+        changeCut(images.scene1.scene1_1, scene1cut2, ()=>{}, bgms.scene1.Magica);
         
     }
+
+    function scene2cut1(){
+        changeCut(images.scene2.scene2_2, scene2cut2, scene2cut3, );
+    }
+
+    function scene2cut2(){
+        changeCut(images.scene2.scene2_5, scene3cut1, null);
+    }
+
+    function scene2cut3(){
+        changeCut(images.scene2.scene2_3, scene2be, null);
+    }
+
+    function scene2be(){
+        changeCut(images.scene2.scene2_be, null, null);
+    }
+
+    function scene3cut1(){
+        changeCut(images.scene3.scene3_1, scene3cut2, scene3be);
+    }
+
+    function scene3cut2(){
+        changeCut(images.scene3.scene3_2, scene4cut1, null);
+    }
+
+    function scene3be(){
+        changeCut(images.scene3.scene3_be, null, null);
+    }
+
+    function scene4cut1(){
+        changeCut(images.scene4.scene4_1, scene4be, scene4cut2);
+    }
+
+    function scene4cut2(){
+        changeCut(images.scene4.scene4_2, scene5cut1, null);
+    }
+
+    function scene4be(){
+        changeCut(images.scene4.scene4_be, null, null);
+    }
+
+    function scene5cut1(){
+        changeCut(images.scene5.scene5_1, scene5cut2, scene5cut3);
+    }
+
+    function scene5cut2(){
+        changeCut(images.scene5.scene5_3, scene6cut1, null);
+    }
+
+    function scene5cut3(){
+        changeCut(images.scene5.scene5_2, scene5be, null);
+    }
+
+    function scene5be(){
+        changeCut(images.scene5.scene5_be, null, null);
+    }
+
+    function scene6cut1(){
+        changeCut(images.scene6.scene6_1, scene6be, goodend);
+    }
+
+    function scene6be(){
+        changeCut(images.scene6.scene6_be, null, null);
+    }
+
+    function goodend(){
+        changeCut(images.scene6.ge, null, null);
+    }
+
 
 }
 var myp5 = new p5(s,'sketch0'); 
