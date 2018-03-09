@@ -353,7 +353,7 @@ var s = function(p5) {
 
     function scene2cut1(){
         changeCut(images.scene2.scene2_2, scene2cut2, scene2cut3, bgms.scene2.What_Lies_Within_2_2,
-            ["Quick, you must decide if you should leave the building and seek resources or remain inside so that you can be sheltered."]);
+            ["Quick, you must decide if you should leave the building and seek resources or remain inside so that you can be sheltered. Do you leave the building?"]);
     }
 
     function scene2cut2(){
@@ -372,7 +372,7 @@ var s = function(p5) {
 
     function scene3cut1(){
         changeCut(images.scene3.scene3_1, scene3cut2, scene3be, bgms.scene3.Nier_Copied_City_3_1, 
-            ["It looks like the only way to stay alive is to find a panic room and get access to protection and resources.", " Do you take a chance and run to the panic room or do you try to find the closest shelter?"]);
+            ["It looks like the only way to stay alive is to find a panic room and get access to protection and resources.", " Do you take a chance and run to the panic room?"]);
     }
 
     function scene3cut2(){
@@ -387,7 +387,7 @@ var s = function(p5) {
 
     function scene4cut1(){
         changeCut(images.scene4.scene4_1, scene4be, scene4cut2, bgms.scene4.Layer_Cake_4_1, 
-            ["It’s been a long day and you haven’t found shelter or food or water. You are desperate.", " You need energy, and you know that you will need to stock up...", "you encounter a stranger. He has a gallon of water and so much food.", " It’s so tempting, and he’s so weak...do you take his food and water?"]);
+            ["It’s been a long day and you haven’t found shelter or food or water. You are desperate.", " You need energy, and you know that you will need to stock up...", "you encounter a stranger. He has a gallon of water and so much food.", " It’s so tempting, and he’s so weak...do you leave him alone?"]);
     }
 
     function scene4cut2(){
