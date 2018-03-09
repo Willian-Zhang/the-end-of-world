@@ -268,11 +268,11 @@ var s = function(p5) {
     }
 
     function scene2cut3(){
-        changeCut(images.scene2.scene2_3, scene2be, null, bgms.scene2.Somnus_Ultima_2_be);
+        changeCut(images.scene2.scene2_3, scene2be, null, bgms.scene2.Somnus_Ultima_2_be,["OH NO! You should’ve left the building. It’s falling! Do something!!!!"]);
     }
 
     function scene2be(){
-        changeCut(images.scene2.scene2_be, null, null, null,["OH NO! You should’ve left the building. It’s falling! Do something!!!!"]);
+        changeCut(images.scene2.scene2_be, null, null, null,["...game over"]);
     }
 
     function scene3cut1(){
@@ -280,11 +280,11 @@ var s = function(p5) {
     }
 
     function scene3cut2(){
-        changeCut(images.scene3.scene3_2, scene4cut1, null, bgms.scene3.You_Say_Run_3_2),[“You guys are great at sticking together. You are just now realizing that your bond is so special that you cannot be separated”];
+        changeCut(images.scene3.scene3_2, scene4cut1, null, bgms.scene3.You_Say_Run_3_2),["You guys are great at sticking together. You are just now realizing that your bond is so special that you cannot be separated"];
     }
 
     function scene3be(){
-        changeCut(images.scene3.scene3_be, null, null, bgms.scene3.Weight_of_the_World_3_be, ["Oh no...this life or death situation has caused you two to split up and proceed alone. Unfortunately you must end your relationship.""]);
+        changeCut(images.scene3.scene3_be, null, null, bgms.scene3.Weight_of_the_World_3_be, ["Oh no...this life or death situation has caused you two to split up and proceed alone. Unfortunately you must end your relationship."]);
     }
 
     function scene4cut1(){
@@ -296,35 +296,35 @@ var s = function(p5) {
     }
 
     function scene4be(){
-        changeCut(images.scene4.scene4_be, null, null, bgms.scene4.Sadness_4_be);
+        changeCut(images.scene4.scene4_be, null, null, bgms.scene4.Sadness_4_be, ["Your both become exhausted and pass out. This is the end. You have both died."]);
     }
 
     function scene5cut1(){
-        changeCut(images.scene5.scene5_1, scene5cut2, scene5cut3, bgms.scene5.Dark_Colossus_5_1);
+        changeCut(images.scene5.scene5_1, scene5cut2, scene5cut3, bgms.scene5.Dark_Colossus_5_1, ["What are those wild dogs doing? What’s that they’re eating? Oh no, it’s a baby It is being eaten? Do you decide to save yourself and your partner instead?"]);
     }
 
     function scene5cut2(){
-        changeCut(images.scene5.scene5_3, scene6cut1, null, bgms.scene5.don_think_twice_5_2);
+        changeCut(images.scene5.scene5_3, scene6cut1, null, bgms.scene5.don_think_twice_5_2,["Oh my gosh! You almost died. That baby was going to die anyway. At least you made it out alive and your partner is there to keep you company"]);
     }
 
     function scene5cut3(){
-        changeCut(images.scene5.scene5_2, scene5be, null, bgms.scene6.song_of_the_Ancients_6_1);
+        changeCut(images.scene5.scene5_2, scene5be, null, bgms.scene6.song_of_the_Ancients_6_1,["Oh no! Not your partner!Run!!!"]);
     }
 
     function scene5be(){
-        changeCut(images.scene5.scene5_be, null, null, bgms.scene5.To_Zanarkand_5_be);
+        changeCut(images.scene5.scene5_be, null, null, bgms.scene5.To_Zanarkand_5_be,["While you manage to get away with the baby, your partner is eaten by wolves. You are left alone with a baby in this scary world."]);
     }
 
     function scene6cut1(){
-        changeCut(images.scene6.scene6_1, scene6be, goodend, bgms.scene5.Pokemon_5_3);
+        changeCut(images.scene6.scene6_1, scene6be, goodend, bgms.scene5.Pokemon_5_3, ["THE WOLVES ARE EATING OUR CAT. OH NO, THEY’RE EATING YOU TOO. WHAT DO I DO?!? Do I save my cat?"]);
     }
 
     function scene6be(){
-        changeCut(images.scene6.scene6_be, null, null, bgms.scene6.Little_Busters_6_be);
+        changeCut(images.scene6.scene6_be, null, null, bgms.scene6.Little_Busters_6_be,["The truth is, you just saved a cat instead of saving your partner… Your partner is now dead and you are stuck with your cat."]);
     }
 
     function goodend(){
-        changeCut(images.scene6.ge, null, null, bgms.scene6.Dearly_Beloved_Kingdom_Hearts_6_ge);
+        changeCut(images.scene6.ge, null, null, bgms.scene6.Dearly_Beloved_Kingdom_Hearts_6_ge,["Woh, I can’t believe that was a nightmare. None of it is real. The love of your life is right next to you."]);
     }
 
 
