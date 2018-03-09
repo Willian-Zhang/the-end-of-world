@@ -308,7 +308,7 @@ var s = function(p5) {
     }
 
     function scene5cut3(){
-        changeCut(images.scene5.scene5_2, scene5be, null, bgms.scene5.Pokemon_5_3);
+        changeCut(images.scene5.scene5_2, scene5be, null, bgms.scene6.song_of_the_Ancients_6_1);
     }
 
     function scene5be(){
@@ -316,7 +316,7 @@ var s = function(p5) {
     }
 
     function scene6cut1(){
-        changeCut(images.scene6.scene6_1, scene6be, goodend, bgms.scene6.song_of_the_Ancients_6_1);
+        changeCut(images.scene6.scene6_1, scene6be, goodend, bgms.scene5.Pokemon_5_3);
     }
 
     function scene6be(){
