@@ -255,7 +255,7 @@ var s = function(p5) {
     }
 
     function scene1cut2(){
-        changeCut(images.scene1.scene1_2, scene2cut1, null, bgms.scene1.What_Lies_Within_2_2);
+        changeCut(images.scene1.scene1_2, scene2cut1, null, null);
     }
 
     function scene2cut1(){
