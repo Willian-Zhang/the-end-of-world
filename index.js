@@ -245,10 +245,11 @@ var s = function(p5) {
         if(bgm){
             if(np){
                 let thisNP = np;
-                thisNP.fade(1, 0, 1000);
-                setTimeout(()=>{
+                thisNP.once('fade', ()=>{
                     thisNP.stop();
-                }, 1000);
+                    thisNP.volume(1);
+                });
+                thisNP.fade(1, 0, 1000);
             }
             setTimeout(()=>{
                 bgm.play();
