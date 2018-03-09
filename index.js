@@ -252,8 +252,7 @@ var s = function(p5) {
 
     function start(){
         changeCut(images.scene1.scene1_1, scene1cut2, null, bgms.scene1.Magica, 
-            ["sasa", "bha"]);
-        
+            ["sasa"]);
     }
 
     function scene1cut2(){
