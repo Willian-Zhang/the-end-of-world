@@ -252,23 +252,23 @@ var s = function(p5) {
 
     function start(){
         changeCut(images.scene1.scene1_1, scene1cut2, null, bgms.scene1.Magica, 
-            ["sasa"]);
+            ["Welcome to the chaotic end of the world. The only people remaining appear to be you and your partner."]);
     }
 
     function scene1cut2(){
-        changeCut(images.scene1.scene1_2, scene2cut1, null, null,["sss"]);
+        changeCut(images.scene1.scene1_2, scene2cut1, null, null,["You have to make decisions, and you have to make them fast."]);
     }
 
     function scene2cut1(){
-        changeCut(images.scene2.scene2_2, scene2cut2, scene2cut3, bgms.scene2.What_Lies_Within_2_2,[""]);
+        changeCut(images.scene2.scene2_2, scene2cut2, scene2cut3, bgms.scene2.What_Lies_Within_2_2,["Quick, you must decide if you should leave the building and seek resources or remain inside so that you can be sheltered."]);
     }
 
     function scene2cut2(){
-        changeCut(images.scene2.scene2_5, scene3cut1, null, bgms.scene2.Fantastica_2_5);
+        changeCut(images.scene2.scene2_5, scene3cut1, null, bgms.scene2.Fantastica_2_5,["Wow, you made it out of the building just in time!"]);
     }
 
     function scene2cut3(){
-        changeCut(images.scene2.scene2_3, scene2be, null, bgms.scene2.Somnus_Ultima_2_be);
+        changeCut(images.scene2.scene2_3, scene2be, null, bgms.scene2.Somnus_Ultima_2_be,["OH NO! You should’ve left the building. It’s falling! Do something!!!!"]);
     }
 
     function scene2be(){
