@@ -79,7 +79,7 @@ var s = function(p5) {
         scene6:{
             song_of_the_Ancients_6_1: '6_1songoftheAncients.aac',
             Little_Busters_6_be: '6_beLittleBustersPianoCover.acc',
-            Dearly_Beloved_Kingdom_Hearts_6_ge: '6_geDearlyBelovedKingdomHearts',
+            Dearly_Beloved_Kingdom_Hearts_6_ge: '6_geDearlyBelovedKingdomHearts.acc',
         }
     };
     const resourcePath = 'resources';
