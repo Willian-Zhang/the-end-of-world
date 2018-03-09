@@ -10,8 +10,8 @@ import {Keybaord, GameState} from './GameEntity.js';
 var np = null;
 var s = function(p5) {
     "use strict";
-    let reward = 10;
-    let panelty  = 20;
+    let reward = 25;
+    let panelty  = 35;
     var images = {
         scene1:{
             scene1_1: null,
