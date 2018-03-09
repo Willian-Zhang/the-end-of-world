@@ -56,19 +56,30 @@ var s = function(p5) {
             Magica: 'Magica.aac',
         },
         scene2:{
-            Magica: 'Magica.aac',
+            Somnus_Ultima_2_be: '2_be_Somnus Ultima.mp3',
+            What_Lies_Within_2_2: '2_2_What Lies Within.mp3',
+            Fantastica_2_5: '2_5_Fantastica.acc',
         },
         scene3:{
-            Magica: 'Magica.aac',
+            Nier_Copied_City_3_1: '3_1_Nier Copied City.aac',
+            You_Say_Run_3_2: '3_2_You Say Run.acc',
+            Weight_of_the_World_3_be: '3_be_The Weight of the World.acc',
         },
         scene4:{
-            Magica: 'Magica.aac',
+            Layer_Cake_4_1 : '4_1 Layer Cake .aac',
+            Horizon_4_2: '4_2 Horizon.acc',
+            Sadness_4_be: '4_be Sadness.acc',
         },
         scene5:{
-            Magica: 'Magica.aac',
+            Dark_Colossus_5_1: '5_1 Dark Colossus.aac',
+            don_think_twice_5_2: '5_2 dont think twice.acc',
+            Pokemon_5_3: '5_3 Pokemon Omega RubyAlpha Sapphire - Battle! Zinnia Music (HQ).acc',
+            To_Zanarkand_5_be: '5_be To Zanarkand.acc',
         },
         scene6:{
-            Magica: 'Magica.aac',
+            song_of_the_Ancients_6_1: '6_1 song of the Ancients - Atonement.aac',
+            Little_Busters_6_be: '6_be Little Busters Piano Cover.acc',
+            Dearly_Beloved_Kingdom_Hearts_6_ge: '6_ge Dearly Beloved Kingdom Hearts',
         }
     };
     const resourcePath = 'resources';
@@ -191,71 +202,71 @@ var s = function(p5) {
     }
 
     function scene2cut1(){
-        changeCut(images.scene2.scene2_2, scene2cut2, scene2cut3, );
+        changeCut(images.scene2.scene2_2, scene2cut2, scene2cut3, What_Lies_Within_2_2);
     }
 
     function scene2cut2(){
-        changeCut(images.scene2.scene2_5, scene3cut1, null);
+        changeCut(images.scene2.scene2_5, scene3cut1, null, Fantastica_2_5);
     }
 
     function scene2cut3(){
-        changeCut(images.scene2.scene2_3, scene2be, null);
+        changeCut(images.scene2.scene2_3, scene2be, null, Somnus_Ultima_2_be);
     }
 
     function scene2be(){
-        changeCut(images.scene2.scene2_be, null, null);
+        changeCut(images.scene2.scene2_be, null, null, null);
     }
 
     function scene3cut1(){
-        changeCut(images.scene3.scene3_1, scene3cut2, scene3be);
+        changeCut(images.scene3.scene3_1, scene3cut2, scene3be, Nier_Copied_City_3_1);
     }
 
     function scene3cut2(){
-        changeCut(images.scene3.scene3_2, scene4cut1, null);
+        changeCut(images.scene3.scene3_2, scene4cut1, null, You_Say_Run_3_2);
     }
 
     function scene3be(){
-        changeCut(images.scene3.scene3_be, null, null);
+        changeCut(images.scene3.scene3_be, null, null, Weight_of_the_World_3_be);
     }
 
     function scene4cut1(){
-        changeCut(images.scene4.scene4_1, scene4be, scene4cut2);
+        changeCut(images.scene4.scene4_1, scene4be, scene4cut2, Layer_Cake_4_1);
     }
 
     function scene4cut2(){
-        changeCut(images.scene4.scene4_2, scene5cut1, null);
+        changeCut(images.scene4.scene4_2, scene5cut1, null, Horizon_4_2);
     }
 
     function scene4be(){
-        changeCut(images.scene4.scene4_be, null, null);
+        changeCut(images.scene4.scene4_be, null, null, Sadness_4_be);
     }
 
     function scene5cut1(){
-        changeCut(images.scene5.scene5_1, scene5cut2, scene5cut3);
+        changeCut(images.scene5.scene5_1, scene5cut2, scene5cut3, Dark_Colossus_5_1);
     }
 
     function scene5cut2(){
-        changeCut(images.scene5.scene5_3, scene6cut1, null);
+        changeCut(images.scene5.scene5_3, scene6cut1, null, don_think_twice_5_2);
     }
 
     function scene5cut3(){
-        changeCut(images.scene5.scene5_2, scene5be, null);
+        changeCut(images.scene5.scene5_2, scene5be, null, Pokemon_5_3);
     }
 
     function scene5be(){
-        changeCut(images.scene5.scene5_be, null, null);
+        changeCut(images.scene5.scene5_be, null, null, To_Zanarkand_5_be);
     }
 
     function scene6cut1(){
-        changeCut(images.scene6.scene6_1, scene6be, goodend);
+        changeCut(images.scene6.scene6_1, scene6be, goodend, song_of_the_Ancients_6_1);
     }
 
     function scene6be(){
-        changeCut(images.scene6.scene6_be, null, null);
+        changeCut(images.scene6.scene6_be, null, null, Little_Busters_6_be);
     }
 
     function goodend(){
-        changeCut(images.scene6.ge, null, null);
+        changeCut(images.scene6.ge, null, null, Dearly_Beloved_Kingdom_Hearts_6_ge);
     }
 
 
