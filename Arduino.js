@@ -1,4 +1,4 @@
-import {AnalogReader, CapasitiveSensor, Button} from './Devices.js';
+import {AnalogReader, CapasitiveSensor, Button, CatagorialReader} from './Devices.js';
 import './libraries/eventemitter2.js';
 export class Board extends EventEmitter2{
 
@@ -65,7 +65,8 @@ export class Board extends EventEmitter2{
         this.devices.map((device, i)=>{
             if(device instanceof CapasitiveSensor||
                device instanceof Button||
-               device instanceof AnalogReader){
+               device instanceof AnalogReader||
+               device instanceof CatagorialReader){
                 device.tick(point[i+1]);
             }
         });
