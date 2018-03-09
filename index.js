@@ -228,7 +228,7 @@ var s = function(p5) {
             let functionsToCall = dialog.map((sentense) =>{
                 showNewCut(cut);
                 showDialog(sentense);
-            })
+            }).reverse();
 
             var current = 0;
             
@@ -237,7 +237,7 @@ var s = function(p5) {
                     if(functionsToCall.length > 0){
                         loopStep(functionsToCall.shift());
                     }else{
-                        lastFunction()
+                        lastFunction();
                     }
                 })
             }
