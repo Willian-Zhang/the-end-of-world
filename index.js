@@ -13,7 +13,7 @@ var s = function(p5) {
     let reward = 25;
     let panelty  = 35;
     function inputNormalize(input){
-        let result = (input-10)/255;
+        let result = (input-20)/255;
         if(result<0)
             return 0;
         else
