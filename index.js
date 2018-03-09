@@ -12,6 +12,13 @@ var s = function(p5) {
     "use strict";
     let reward = 25;
     let panelty  = 35;
+    function inputNormalize(input){
+        let result = (input-10)/255;
+        if(result<0)
+            return 0;
+        else
+            return result;
+    }
     var images = {
         scene1:{
             scene1_1: null,
@@ -128,7 +135,7 @@ var s = function(p5) {
     var gameState = new GameState();
     heartB.on('tick', (value)=>{
         if(gameState.state.blood < 120){
-            gameState.add(value/255);
+            gameState.add(inputNormalize(value));
         }
     })
     // let bloodDOM = $('#blood')[0];
@@ -327,7 +334,7 @@ var s = function(p5) {
         }
     }
     function start(){
-        gameState.not_touching_threshold = heartB.value/255;
+        gameState.not_touching_threshold = inputNormalize(heartB.value);
         gameState.reset();
         gameState.on('report', blood_report);
         changeCut(images.scene1.scene1_1, scene1cut2, null, bgms.scene1.Magica, 

@@ -48,6 +48,7 @@ export class GameState extends EventEmitter2{
             }, 500);            
     }
     add(value){
-        this.state.blood += this.update_rate * (value + this.delta - 0.01);
+        // this.state.blood += this.update_rate * (value + this.delta - 0.01);
+        this.state.blood += this.update_rate * (value + this.delta);
     }
 }
