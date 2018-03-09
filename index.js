@@ -268,31 +268,31 @@ var s = function(p5) {
     }
 
     function scene2cut3(){
-        changeCut(images.scene2.scene2_3, scene2be, null, bgms.scene2.Somnus_Ultima_2_be,["OH NO! You should’ve left the building. It’s falling! Do something!!!!"]);
+        changeCut(images.scene2.scene2_3, scene2be, null, bgms.scene2.Somnus_Ultima_2_be);
     }
 
     function scene2be(){
-        changeCut(images.scene2.scene2_be, null, null, null);
+        changeCut(images.scene2.scene2_be, null, null, null,["OH NO! You should’ve left the building. It’s falling! Do something!!!!"]);
     }
 
     function scene3cut1(){
-        changeCut(images.scene3.scene3_1, scene3cut2, scene3be, bgms.scene3.Nier_Copied_City_3_1);
+        changeCut(images.scene3.scene3_1, scene3cut2, scene3be, bgms.scene3.Nier_Copied_City_3_1, ["It looks like the only way to stay alive is to find a panic room and get access to protection and resources. Do you take a chance and run to the panic room or do you try to find the closest shelter?"]);
     }
 
     function scene3cut2(){
-        changeCut(images.scene3.scene3_2, scene4cut1, null, bgms.scene3.You_Say_Run_3_2);
+        changeCut(images.scene3.scene3_2, scene4cut1, null, bgms.scene3.You_Say_Run_3_2),[“You guys are great at sticking together. You are just now realizing that your bond is so special that you cannot be separated”];
     }
 
     function scene3be(){
-        changeCut(images.scene3.scene3_be, null, null, bgms.scene3.Weight_of_the_World_3_be);
+        changeCut(images.scene3.scene3_be, null, null, bgms.scene3.Weight_of_the_World_3_be, ["Oh no...this life or death situation has caused you two to split up and proceed alone. Unfortunately you must end your relationship.""]);
     }
 
     function scene4cut1(){
-        changeCut(images.scene4.scene4_1, scene4be, scene4cut2, bgms.scene4.Layer_Cake_4_1);
+        changeCut(images.scene4.scene4_1, scene4be, scene4cut2, bgms.scene4.Layer_Cake_4_1, ["It’s been a long day and you haven’t found shelter or food or water. You are desperate. You need energy, and you know that you will need to stock up...you encounter a stranger. He has a gallon of water and so much food. It’s so tempting, and he’s so weak...do you take it?"]);
     }
 
     function scene4cut2(){
-        changeCut(images.scene4.scene4_2, scene5cut1, null, bgms.scene4.Horizon_4_2);
+        changeCut(images.scene4.scene4_2, scene5cut1, null, bgms.scene4.Horizon_4_2, ["That extra gallon of water was just enough for you and your partner to push forward and continue your journey. It’s survival of the fittest out here!"]);
     }
 
     function scene4be(){
