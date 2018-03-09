@@ -260,9 +260,13 @@ var s = function(p5) {
     // ================= Story ==================
 
     async function popGameEnd(){
-        let value = await swal("Hi");
+        let value = await swal({
+            title: "Do you want to restart the game?",
+            icon: "info",
+            button: "restart",
+            dangerMode: true,
+          });
         console.log(value)
-        
     }
     function start(){
         resetGameState();
