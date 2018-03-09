@@ -110,11 +110,7 @@ var s = function(p5) {
     let keyboard = new Keybaord();
     p5.setup = function(){   
         {// connection
-            try {
-                let board = new Board([heartA , heartB]);
-            } catch (error) {
-                start();
-            }
+            let board = new Board([heartA , heartB]);
             let port = board.connect({baudrate: 9600});
             console.log(`Connecting on ${port}...`);
             board.on('connected', ()=>{
