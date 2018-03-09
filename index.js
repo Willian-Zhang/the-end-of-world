@@ -15,7 +15,7 @@ class Keybaord extends EventEmitter2{
         });
     }
 }
-
+var np = null;
 var s = function(p5) {
     "use strict";
     var images = {
@@ -200,7 +200,7 @@ var s = function(p5) {
         p5.textSize(32);
         p5.text(text, x + textMargin, y + textMargin , width - textMargin, height - textMargin);
     }
-    var np = null;
+    
     function changeCut(cut, agreeFn, disagreeFn=null, bgm = null, dialog = []){
         showNewCut(cut);
         if(bgm){
@@ -212,7 +212,8 @@ var s = function(p5) {
                 }, 1000);
             }
             setTimeout(()=>{
-                np = bgm.play();
+                bgm.play();
+                np = bgm;
             }, 500);
         }
         var lastFunction = function(){
