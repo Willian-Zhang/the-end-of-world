@@ -56,30 +56,30 @@ var s = function(p5) {
             Magica: 'Magica.aac',
         },
         scene2:{
-            Somnus_Ultima_2_be: '2_be_Somnus Ultima.mp3',
-            What_Lies_Within_2_2: '2_2_What Lies Within.mp3',
-            Fantastica_2_5: '2_5_Fantastica.acc',
+            Somnus_Ultima_2_be: '2_be_SomnusUltima.mp3',
+            What_Lies_Within_2_2: '2_2_WhatLiesWithin.mp3',
+            Fantastica_2_5: '2_5_Fantastica.aac',
         },
         scene3:{
-            Nier_Copied_City_3_1: '3_1_Nier Copied City.aac',
-            You_Say_Run_3_2: '3_2_You Say Run.acc',
-            Weight_of_the_World_3_be: '3_be_The Weight of the World.acc',
+            Nier_Copied_City_3_1: '3_1_NierCopiedCity.aac',
+            You_Say_Run_3_2: '3_2_YouSayRun.aac',
+            Weight_of_the_World_3_be: '3_be_TheWeightoftheWorld.aac',
         },
         scene4:{
-            Layer_Cake_4_1 : '4_1 Layer Cake .aac',
-            Horizon_4_2: '4_2 Horizon.acc',
-            Sadness_4_be: '4_be Sadness.acc',
+            Layer_Cake_4_1 : '4_1LayerCake.aac',
+            Horizon_4_2: '4_2Horizon.aac',
+            Sadness_4_be: '4_beSadness.aac',
         },
         scene5:{
-            Dark_Colossus_5_1: '5_1 Dark Colossus.aac',
-            don_think_twice_5_2: '5_2 dont think twice.acc',
-            Pokemon_5_3: '5_3 Pokemon Omega RubyAlpha Sapphire - Battle! Zinnia Music (HQ).acc',
-            To_Zanarkand_5_be: '5_be To Zanarkand.acc',
+            Dark_Colossus_5_1: '5_1DarkColossus.aac',
+            don_think_twice_5_2: '5_2dontthinktwice.aac',
+            Pokemon_5_3: '5_3PokemonOmegaRubyAlphaSapphire.aac',
+            To_Zanarkand_5_be: '5_beToZanarkand.aac',
         },
         scene6:{
-            song_of_the_Ancients_6_1: '6_1 song of the Ancients - Atonement.aac',
-            Little_Busters_6_be: '6_be Little Busters Piano Cover.acc',
-            Dearly_Beloved_Kingdom_Hearts_6_ge: '6_ge Dearly Beloved Kingdom Hearts',
+            song_of_the_Ancients_6_1: '6_1songoftheAncients.aac',
+            Little_Busters_6_be: '6_beLittleBustersPianoCover.aac',
+            Dearly_Beloved_Kingdom_Hearts_6_ge: '6_geDearlyBelovedKingdomHearts.aac',
         }
     };
     const resourcePath = 'resources';
@@ -150,6 +150,7 @@ var s = function(p5) {
             clearEventListeners();
         }
         heartA.once('change', value=>{
+            console.log(value);
             if(value == 1){
                 agreeFn();
             }else if(value == 2){
@@ -307,7 +308,7 @@ var s = function(p5) {
     }
 
     function scene5cut3(){
-        changeCut(images.scene5.scene5_2, scene5be, null, bgms.scene5.Pokemon_5_3);
+        changeCut(images.scene5.scene5_2, scene5be, null, bgms.scene6.song_of_the_Ancients_6_1);
     }
 
     function scene5be(){
@@ -315,7 +316,7 @@ var s = function(p5) {
     }
 
     function scene6cut1(){
-        changeCut(images.scene6.scene6_1, scene6be, goodend, bgms.scene6.song_of_the_Ancients_6_1);
+        changeCut(images.scene6.scene6_1, scene6be, goodend, bgms.scene5.Pokemon_5_3);
     }
 
     function scene6be(){

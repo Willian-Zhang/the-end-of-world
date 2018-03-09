@@ -59,3 +59,5 @@ typings/
 
 # mac
 .DS_Store
+.DS_Store
+resources/.DS_Store
