@@ -225,23 +225,23 @@ var s = function(p5) {
             }
         }
         if(dialog.length > 0){
-            
-            let functionsToCall = dialog.map((sentense) =>{
+            console.log(dialog)
+            let functionsToCall = dialog.map(sentense => function(){
                 showNewCut(cut);
                 showDialog(sentense);
-            })
+            });
 
-            var current = 0;
             
-            var loopStep = function(){
+            var loopStep = function(func){
                 detectSpace(()=>{
+                    func();
                     if(functionsToCall.length > 0){
                         loopStep(functionsToCall.shift());
                     }else{
-                        lastFunction()
+                        lastFunction();
                     }
-                })
-            }
+                });
+            };
             loopStep(functionsToCall.shift());
         }else{
             lastFunction();
